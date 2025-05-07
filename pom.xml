@@ -34,7 +34,7 @@
     <properties>
         <revision>0.0.19-SNAPSHOT</revision>
 
-        <atp.codechecks.version>1.1-SNAPSHOT</atp.codechecks.version>
+        <atp.codechecks.version>1.12-SNAPSHOT</atp.codechecks.version>
         <java.version>21</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
