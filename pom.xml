@@ -26,9 +26,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>https//github.com/Netcracker/qubership-testing-platform-crypt-library.git</connection>
-        <developerConnection>https://github.com:Netcracker/qubership-testing-platform-crypt-library.git</developerConnection>
-        <url>https://github.com/Netcracker/qubership-testing-platform-crypt-library/tree/main</url>
+        <connection>scm:git:https//github.com/Netcracker/qubership-testing-platform-crypt-library.git</connection>
+        <developerConnection>scm:git:https://github.com:Netcracker/qubership-testing-platform-crypt-library.git</developerConnection>
+        <url>scm:git:https://github.com/Netcracker/qubership-testing-platform-crypt-library/tree/main</url>
     </scm>
 
     <properties>
@@ -176,13 +176,8 @@
 
     <repositories>
         <repository>
-            <id>github2</id>
-            <url>https://maven.pkg.github.com/netcracker/*</url>
-            <snapshots/>
-        </repository>
-        <repository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/Netcracker/*</url>
+            <url>https://maven.pkg.github.com/netcracker/*</url>
             <snapshots/>
         </repository>
     </repositories>
