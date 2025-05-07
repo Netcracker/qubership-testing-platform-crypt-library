@@ -31,7 +31,6 @@
         <url>https://github.com/Netcracker/qubership-testing-platform-crypt-library/tree/main</url>
     </scm>
 
-
     <properties>
         <revision>0.0.19-SNAPSHOT</revision>
 
