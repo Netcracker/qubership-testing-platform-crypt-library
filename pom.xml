@@ -176,12 +176,12 @@
 
     <repositories>
         <repository>
-            <id>github</id>
+            <id>github2</id>
             <url>https://maven.pkg.github.com/netcracker/*</url>
             <snapshots/>
         </repository>
         <repository>
-            <id>github2</id>
+            <id>github</id>
             <url>https://maven.pkg.github.com/Netcracker/*</url>
             <snapshots/>
         </repository>
