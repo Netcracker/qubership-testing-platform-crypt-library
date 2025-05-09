@@ -55,6 +55,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.qubership.atp.codechecks</groupId>
+                <artifactId>qubership-atp-codechecks</artifactId>
+                <version>${atp.codechecks.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk15on</artifactId>
                 <version>${bouncycastle.version}</version>
@@ -214,17 +219,17 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.7.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                    <autoPublish>true</autoPublish>
-                    <waitUntil>published</waitUntil>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.sonatype.central</groupId>-->
+<!--                <artifactId>central-publishing-maven-plugin</artifactId>-->
+<!--                <version>0.7.0</version>-->
+<!--                <extensions>true</extensions>-->
+<!--                <configuration>-->
+<!--                    <publishingServerId>central</publishingServerId>-->
+<!--                    <autoPublish>true</autoPublish>-->
+<!--                    <waitUntil>published</waitUntil>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -334,7 +339,6 @@
                     <dependency>
                         <groupId>org.qubership.atp.codechecks</groupId>
                         <artifactId>qubership-atp-codechecks</artifactId>
-                        <version>${atp.codechecks.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -367,7 +371,6 @@
                     <dependency>
                         <groupId>org.qubership.atp.codechecks</groupId>
                         <artifactId>qubership-atp-codechecks</artifactId>
-                        <version>${atp.codechecks.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -397,7 +400,6 @@
                     <dependency>
                         <groupId>org.qubership.atp.codechecks</groupId>
                         <artifactId>qubership-atp-codechecks</artifactId>
-                        <version>${atp.codechecks.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.ow2.asm</groupId>
