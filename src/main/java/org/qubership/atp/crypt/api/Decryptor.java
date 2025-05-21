@@ -20,15 +20,52 @@ import org.qubership.atp.crypt.exception.AtpDecryptException;
 
 public interface Decryptor {
 
+    /**
+     * Decrypt encryptedData String.
+     * @param encryptedData String to be decrypted
+     * @return decrypted String
+     * @throws AtpDecryptException in case decryption problems.
+     */
     String decrypt(String encryptedData) throws AtpDecryptException;
 
+    /**
+     * Decrypt encryptedData String.
+     * @param encryptedData String to be decrypted
+     * @param key Key object
+     * @return decrypted String
+     * @throws AtpDecryptException in case decryption problems.
+     */
     String decrypt(String encryptedData, Object key) throws AtpDecryptException;
 
+    /**
+     * Decrypt encryptedData String if it's encrypted.
+     * @param encryptedData String possibly encrypted
+     * @return decrypted String if encryptedData was really encrypted, otherwise returns original string
+     * @throws AtpDecryptException in case decryption problems.
+     */
     String decryptIfEncrypted(String encryptedData) throws AtpDecryptException;
 
+    /**
+     * Decrypt encryptedData String if it's encrypted.
+     * @param encryptedData String possibly encrypted
+     * @param key  Key object
+     * @return decrypted String if encryptedData was really encrypted, otherwise returns original string
+     * @throws AtpDecryptException in case decryption problems.
+     */
     String decryptIfEncrypted(String encryptedData, Object key) throws AtpDecryptException;
 
+    /**
+     * Check if String data parameter is encrypted or not.
+     * @param data String to check
+     * @return true if String is encrypted, otherwise false.
+     */
     boolean isEncrypted(String data);
 
+    /**
+     * Decrypt encrypted parts of String text (if any).
+     * @param text String possibly containing encrypted parts
+     * @return String decrypted
+     * @throws AtpDecryptException in case decryption problems.
+     */
     String decryptEncryptedPlacesInString(String text) throws AtpDecryptException;
 }

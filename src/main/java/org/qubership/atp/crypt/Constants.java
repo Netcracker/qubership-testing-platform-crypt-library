@@ -18,7 +18,7 @@ package org.qubership.atp.crypt;
 
 import java.util.regex.Pattern;
 
-public class Constants {
+public final class Constants {
 
     public static final String TEMPLATE_REGEXP = "\\{ENC\\}(\\{(?<iv>[a-zA-Z0-9\\=\\/\\+]*)\\}){1}(\\{"
             + "(?<cryptData>[a-zA-Z0-9\\=\\/\\+]+)\\}){1}";

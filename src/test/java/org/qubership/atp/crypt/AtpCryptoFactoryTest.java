@@ -17,7 +17,6 @@
 package org.qubership.atp.crypt;
 
 import org.junit.Test;
-
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 
 public class AtpCryptoFactoryTest {

@@ -22,6 +22,9 @@ import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -30,7 +33,6 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.lang.StringUtils;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
-
 import org.qubership.atp.crypt.api.Decryptor;
 import org.qubership.atp.crypt.api.Encryptor;
 import org.qubership.atp.crypt.api.KeyEntity;
@@ -38,7 +40,14 @@ import org.qubership.atp.crypt.api.KeyEntity;
 public class KeyPairGenerator {
 
     /**
+     * Array of correct lengths of AES KEY.
+     * Checking is performed in the readKey method.
+     */
+    private final static List<Integer> AES_KEY_CORRECT_LENGTH = new ArrayList<>(Arrays.asList(16, 24, 32));
+
+    /**
      * Generation of RSA and AES keys.
+     * @return KeyEntity - key entity generated.
      **/
     public KeyEntity generateKeys() throws Exception {
         // Generate AES key
@@ -56,7 +65,7 @@ public class KeyPairGenerator {
      * @return the key entity
      * @throws Exception the exception
      */
-    public KeyEntity generateKeys(String key) throws Exception {
+    public KeyEntity generateKeys(final String key) throws Exception {
         // Generate RSA keys
         KeyPair kp = generateRsaKeyPair();
 
@@ -82,14 +91,13 @@ public class KeyPairGenerator {
         return rsa.generateKeyPair();
     }
 
-
     /**
      * To generate pair key from console.
      *
      * @param arg the input arguments
      * @throws Exception the exception
      */
-    public static void main(String[] arg) throws Exception {
+    public static void main(final String[] arg) throws Exception {
         int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
         System.out.println("Max Key Size for AES = " + maxKeySize);
         KeyPairGenerator generator = new KeyPairGenerator();
@@ -109,11 +117,12 @@ public class KeyPairGenerator {
         System.out.println("Decrypted data = " + decryptor.decrypt(encryptedData));
     }
 
-
     /**
      * Read the base32 form of a public key.
+     * @param publicKey - Key String to read from
+     * @return Object key.
      **/
-    public Object readPublicKey(String publicKey) throws Exception {
+    public Object readPublicKey(final String publicKey) throws Exception {
         KeyFactory factory = KeyFactory.getInstance(Constants.RSA);
         if (publicKey.trim().startsWith(Constants.PEM_BEGIN)) {
             try (StringReader keyReader = new StringReader(publicKey);
@@ -133,8 +142,10 @@ public class KeyPairGenerator {
 
     /**
      * Read the base32 form of a private key.
+     * @param privateKeyString - Key String to read from
+     * @return Object key.
      **/
-    public Object readPrivateKey(String privateKeyString) throws Exception {
+    public Object readPrivateKey(final String privateKeyString) throws Exception {
         KeyFactory factory = KeyFactory.getInstance(Constants.RSA);
         if (privateKeyString.trim().startsWith(Constants.PEM_BEGIN)) {
             try (StringReader keyReader = new StringReader(privateKeyString);
@@ -142,8 +153,8 @@ public class KeyPairGenerator {
 
                 PemObject pemObject = pemReader.readPemObject();
                 byte[] content = pemObject.getContent();
-                PKCS8EncodedKeySpec privKeySpec = new PKCS8EncodedKeySpec(content);
-                return factory.generatePrivate(privKeySpec);
+                PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(content);
+                return factory.generatePrivate(privateKeySpec);
             }
         } else {
             byte[] keyBytes = ConverterTools.decode(privateKeyString);
@@ -153,9 +164,11 @@ public class KeyPairGenerator {
     }
 
     /**
-     * Read the base32 form of a AES key.
+     * Read the base32 form of an AES key.
+     * @param keyString - Key String to read from
+     * @return Object key.
      **/
-    public Object readKey(String keyString) throws Exception {
+    public Object readKey(final String keyString) throws Exception {
         byte[] bytes;
         if (keyString.trim().startsWith(Constants.PEM_BEGIN)) {
             try (StringReader keyReader = new StringReader(keyString);
@@ -168,10 +181,9 @@ public class KeyPairGenerator {
             bytes = ConverterTools.decode(keyString);
         }
 
-        if (bytes.length != 16 && bytes.length != 24 && bytes.length != 32) {
+        if (!AES_KEY_CORRECT_LENGTH.contains(bytes.length)) {
             throw new IllegalArgumentException("Wrong length for AES key");
         }
-
         return new SecretKeySpec(bytes, Constants.AES);
     }
 }

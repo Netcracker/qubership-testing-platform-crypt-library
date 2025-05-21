@@ -16,10 +16,9 @@
 
 package org.qubership.atp.crypt.config;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThrows;
 
 import org.junit.Test;
-
 import org.qubership.atp.crypt.exception.AtpCryptoException;
 
 public class AtpCryptoConfigurationTest {
