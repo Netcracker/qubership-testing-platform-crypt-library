@@ -43,7 +43,7 @@ public class KeyPairGenerator {
      * Array of correct lengths of AES KEY.
      * Checking is performed in the readKey method.
      */
-    private final static List<Integer> AES_KEY_CORRECT_LENGTH = new ArrayList<>(Arrays.asList(16, 24, 32));
+    private static final List<Integer> AES_KEY_CORRECT_LENGTH = new ArrayList<>(Arrays.asList(16, 24, 32));
 
     /**
      * Generation of RSA and AES keys.

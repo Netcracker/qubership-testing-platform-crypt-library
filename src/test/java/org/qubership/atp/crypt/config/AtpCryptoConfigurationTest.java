@@ -23,8 +23,11 @@ import org.qubership.atp.crypt.exception.AtpCryptoException;
 
 public class AtpCryptoConfigurationTest {
 
+    /**
+     * Test that AtpCryptoException is thrown in case empty "atp.crypto.key" in config.
+     */
     @Test
-    public void validateKey_givenEmptyKey_throwAtpCryptoException() {
+    public void validateKeyGivenEmptyKeyThrowAtpCryptoException() {
         AtpCryptoConfiguration config = new AtpCryptoConfiguration();
         assertThrows(AtpCryptoException.class,
                 () -> config.validateKey("", "atp.crypto.key")

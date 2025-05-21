@@ -29,21 +29,28 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AtpCryptoFactory {
 
+    /**
+     * Default CryptoProvider.
+     */
     private static final CryptoProvider DEFAULT_PROVIDER = createBouncyCastleProvider();
 
     /**
      * Create Encryptor by parameters.
+     *
      * @param transformation name of transformation
      * @param key encryption key
      * @param provider crypto provider
      * @return Encryptor created.
      */
-    public static Encryptor createEncryptor(final String transformation, final Object key, CryptoProvider provider) {
+    public static Encryptor createEncryptor(final String transformation,
+                                            final Object key,
+                                            final CryptoProvider provider) {
         return new EncryptorImpl(transformation, provider, key);
     }
 
     /**
      * Create Encryptor by parameters, using default crypto provider.
+     *
      * @param transformation name of transformation
      * @param key encryption key
      * @return Encryptor created.
@@ -54,17 +61,21 @@ public class AtpCryptoFactory {
 
     /**
      * Create Decryptor by parameters.
+     *
      * @param transformation name of transformation
      * @param key encryption key
      * @param provider crypto provider
      * @return Decryptor created.
      */
-    public static Decryptor createDecryptor(final String transformation, final Object key, CryptoProvider provider) {
+    public static Decryptor createDecryptor(final String transformation,
+                                            final Object key,
+                                            final CryptoProvider provider) {
         return new DecryptorImpl(transformation, provider, key);
     }
 
     /**
      * Create Decryptor by parameters, using default crypto provider.
+     *
      * @param transformation name of transformation
      * @param key encryption key
      * @return Decryptor created.
@@ -75,9 +86,10 @@ public class AtpCryptoFactory {
 
     /**
      * Create AES encryptor.
+     *
      * @param key encryption key
      * @return Encryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
     public static Encryptor createDefaultAesEncryptor(final String key) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
@@ -91,9 +103,10 @@ public class AtpCryptoFactory {
 
     /**
      * Create AES decryptor.
+     *
      * @param key decryption key
      * @return Decryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
     public static Decryptor createDefaultAesDecryptor(final String key) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
@@ -107,9 +120,10 @@ public class AtpCryptoFactory {
 
     /**
      * Create RSA Encryptor.
+     *
      * @param publicKey encryption key
      * @return Encryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
     public static Encryptor createDefaultRsaEncryptor(final String publicKey) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
@@ -124,9 +138,10 @@ public class AtpCryptoFactory {
 
     /**
      * Create RSA decryptor.
+     *
      * @param privateKey decryption key
      * @return Decryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
     public static Decryptor createDefaultRsaDecryptor(final String privateKey) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
@@ -141,6 +156,7 @@ public class AtpCryptoFactory {
 
     /**
      * Get Default crypto provider instance.
+     *
      * @return CryptoProvider instance.
      */
     public static CryptoProvider getDefaultProvider() {
@@ -149,6 +165,7 @@ public class AtpCryptoFactory {
 
     /**
      * Create and return new BouncyCastleProvider.
+     *
      * @return CryptoProvider instance.
      */
     public static CryptoProvider createBouncyCastleProvider() {

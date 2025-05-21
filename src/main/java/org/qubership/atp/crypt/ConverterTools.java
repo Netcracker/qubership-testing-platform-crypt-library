@@ -31,8 +31,9 @@ public class ConverterTools {
 
     /**
      * Encode input data to base64 format.
+     *
      * @param data input data
-     * @return base64 encoded data
+     * @return base64 encoded data.
      */
     public static String encode(final byte[] data) {
         if (null == data) {
@@ -43,8 +44,9 @@ public class ConverterTools {
 
     /**
      * Decode base64 encoded data.
+     *
      * @param data base64 encoded data
-     * @return decoded data
+     * @return decoded data.
      */
     public static byte[] decode(final String data) {
         if (null == data) {
@@ -55,6 +57,7 @@ public class ConverterTools {
 
     /**
      * Convert String to byte[] with default charset.
+     *
      * @param data String data to convert
      * @return byte[] converted from String with default charset.
      */
@@ -64,6 +67,7 @@ public class ConverterTools {
 
     /**
      * Make String from byte[] with default charset.
+     *
      * @param data byte[] data to convert
      * @return String converted from byte[] with default charset.
      */

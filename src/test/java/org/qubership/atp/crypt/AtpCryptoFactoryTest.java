@@ -21,23 +21,43 @@ import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 
 public class AtpCryptoFactoryTest {
 
+    /**
+     * Test of Default AES Encryptor creation in case key is not valid.
+     *
+     * @throws Exception in case crypto errors occurred.
+     */
     @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultAesEncryptor_expectException_whenKeyIsNotValid() throws Exception {
+    public void testCreateDefaultAesEncryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
         AtpCryptoFactory.createDefaultAesEncryptor("Invalid");
     }
 
+    /**
+     * Test of Default RSA Encryptor creation in case key is not valid.
+     *
+     * @throws Exception in case crypto errors occurred.
+     */
     @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultRsaEncryptor_expectException_whenKeyIsNotValid() throws Exception {
+    public void testCreateDefaultRsaEncryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
         AtpCryptoFactory.createDefaultRsaEncryptor("Invalid");
     }
 
+    /**
+     * Test of Default AES Decryptor creation in case key is not valid.
+     *
+     * @throws Exception in case crypto errors occurred.
+     */
     @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultAesDecryptor_expectException_whenKeyIsNotValid() throws Exception {
+    public void testCreateDefaultAesDecryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
         AtpCryptoFactory.createDefaultAesDecryptor("Invalid");
     }
 
+    /**
+     * Test of Default RSA Decryptor creation in case key is not valid.
+     *
+     * @throws Exception in case crypto errors occurred.
+     */
     @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultRsaDecryptor_expectException_whenKeyIsNotValid() throws Exception {
+    public void testCreateDefaultRsaDecryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
         AtpCryptoFactory.createDefaultRsaDecryptor("Invalid");
     }
 
