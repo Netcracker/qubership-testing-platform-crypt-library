@@ -1,4 +1,4 @@
-# ATP Crypt Library
+# Qubership Testing Platform Crypt Library
 
 ## How to generate the pair key for BouncyCastleProvider
 

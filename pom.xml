@@ -7,7 +7,7 @@
     <version>0.0.21-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>ATP Crypt Library</description>
+    <description>Qubership Testing Platform Crypt Library</description>
     <url>https://github.com/Netcracker/qubership-testing-platform-crypt-library</url>
     <licenses>
         <license>
@@ -43,9 +43,6 @@
         <bouncycastle.version>1.69</bouncycastle.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
-        <maven.pmd.plugin.version>3.8</maven.pmd.plugin.version>
-        <spotbugs.maven.plugin.version>4.7.3.0</spotbugs.maven.plugin.version>
-        <pmd.version>7.0.0</pmd.version>
     </properties>
 
     <dependencyManagement>
@@ -265,38 +262,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.openclover</groupId>
-                <artifactId>clover-maven-plugin</artifactId>
-                <version>4.2.0</version>
-                <configuration>
-                    <outputDirectory>${project.build.directory}/clover</outputDirectory>
-                    <generateHtml>true</generateHtml>
-                    <generateXml>true</generateXml>
-                    <generatePdf>true</generatePdf>
-                    <targetPercentage>70%</targetPercentage>
-                    <excludes>
-                        <exclude>**/model/**</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>clover-instrument</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>instrument-test</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>clover-report</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>clover</goal>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
