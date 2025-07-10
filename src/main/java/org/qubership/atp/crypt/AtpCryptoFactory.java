@@ -22,7 +22,7 @@ import org.qubership.atp.crypt.api.Encryptor;
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 import org.qubership.atp.crypt.impl.DecryptorImpl;
 import org.qubership.atp.crypt.impl.EncryptorImpl;
-import org.qubership.atp.crypt.provider.BouncyCastleProvider;
+import org.qubership.atp.crypt.provider.NoneProvider;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +32,7 @@ public class AtpCryptoFactory {
     /**
      * Default CryptoProvider.
      */
-    private static final CryptoProvider DEFAULT_PROVIDER = createBouncyCastleProvider();
+    private static final CryptoProvider DEFAULT_PROVIDER = createNoneProvider();
 
     /**
      * Create Encryptor by parameters.
@@ -164,11 +164,11 @@ public class AtpCryptoFactory {
     }
 
     /**
-     * Create and return new BouncyCastleProvider.
+     * Create and return new NoneProvider.
      *
      * @return CryptoProvider instance.
      */
-    public static CryptoProvider createBouncyCastleProvider() {
-        return new BouncyCastleProvider();
+    public static CryptoProvider createNoneProvider() {
+        return new NoneProvider();
     }
 }

@@ -16,28 +16,22 @@
 
 package org.qubership.atp.crypt;
 
-import java.util.regex.Matcher;
-
-import org.apache.commons.lang.StringUtils;
-
 public final class CryptoTools {
 
     /**
      * Mask text if encrypted with the mask.
+     * Stub implementation: The class knows nothing about encryption, so simply returns the source text.
      *
      * @param text - data to mask
      * @param mask - to mask encrypted data with
      * @return - encrypted text
      */
     public static String maskEncryptedData(final String text, final String mask) {
-        if (StringUtils.isEmpty(text) || !text.contains(Constants.ENCRYPT_MARKER)) {
-            return text;
-        }
-        return text.replaceAll(getTemplateRegexp(), mask);
+        return text;
     }
 
     /**
-     * Mask text if encrypted with '********' mask.
+     * Mask text if encrypted with Constants.ENCRYPTED_MASK mask.
      *
      * @param text - data to mask
      * @return - encrypted text
@@ -57,17 +51,14 @@ public final class CryptoTools {
 
     /**
      * Finds encrypted text from data.
+     * Stub implementation: The class knows nothing about encryption,
+     * so simply returns null (~ no encrypted parts inside source data).
      *
      * @param data - data to find encrypted text in.
      * @return encrypted text if exists
      */
     public static String[] getEncryptedData(final String data) {
-        Matcher matcher = Constants.TEMPLATE_PATTERN.matcher(data);
-        if (!matcher.find()) {
-            return null;
-        } else {
-            return new String[]{matcher.group("iv"), matcher.group("cryptData")};
-        }
+        return null;
     }
 
     private CryptoTools() {

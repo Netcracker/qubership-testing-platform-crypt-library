@@ -16,9 +16,6 @@
 
 package org.qubership.atp.crypt.impl;
 
-import java.util.regex.Matcher;
-
-import org.qubership.atp.crypt.Constants;
 import org.qubership.atp.crypt.api.CryptoProvider;
 import org.qubership.atp.crypt.api.Decryptor;
 import org.qubership.atp.crypt.exception.AtpDecryptException;
@@ -80,17 +77,13 @@ public class DecryptorImpl implements Decryptor {
 
     /**
      * Decrypt and replace text if there is any encrypted data.
+     * Stub implementation: Decryptor knows nothing about encryption/decryption, so simply returns the source string.
      *
      * @param text - data for decrypting
      * @return - Decrypted text
      */
     @Override
-    public String decryptEncryptedPlacesInString(String text) throws AtpDecryptException {
-        Matcher matcher = Constants.TEMPLATE_PATTERN.matcher(text);
-        while (matcher.find()) {
-            String encryptedValue = matcher.group();
-            text = text.replace(encryptedValue, decrypt(encryptedValue));
-        }
+    public String decryptEncryptedPlacesInString(String text) {
         return text;
     }
 }

@@ -23,8 +23,7 @@ public final class Constants {
     /**
      * Regular expression to determine encrypted strings.
      */
-    public static final String TEMPLATE_REGEXP = "\\{ENC\\}(\\{(?<iv>[a-zA-Z0-9\\=\\/\\+]*)\\}){1}(\\{"
-            + "(?<cryptData>[a-zA-Z0-9\\=\\/\\+]+)\\}){1}";
+    public static final String TEMPLATE_REGEXP = "Some-Template-Regexp";
 
     /**
      * Compiled pattern to determine encrypted strings.
@@ -34,7 +33,7 @@ public final class Constants {
     /**
      * Encrypted string marker.
      */
-    public static final String ENCRYPT_MARKER = "{ENC}";
+    public static final String ENCRYPT_MARKER = "Some-marker";
 
     /**
      * RSA name.
@@ -64,12 +63,12 @@ public final class Constants {
     /**
      * Canonical name of AES Mode.
      */
-    public static final String AES_MODE = "CBC";
+    public static final String AES_MODE = "Some-AES-Mode";
 
     /**
      * Canonical name of AES Paddings.
      */
-    public static final String AES_PADDINGS = "PKCS5Padding";
+    public static final String AES_PADDINGS = "Some-AES-Padding";
 
     /**
      * Canonical name of AES Transformation.
