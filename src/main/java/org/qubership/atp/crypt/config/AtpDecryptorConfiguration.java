@@ -16,14 +16,13 @@
 
 package org.qubership.atp.crypt.config;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import org.qubership.atp.crypt.AtpCryptoFactory;
 import org.qubership.atp.crypt.api.Decryptor;
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 import org.qubership.atp.crypt.exception.AtpDecryptException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AtpDecryptorConfiguration extends AtpCryptoConfiguration {

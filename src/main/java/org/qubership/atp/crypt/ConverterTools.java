@@ -24,14 +24,18 @@ import org.apache.commons.lang.StringUtils;
 
 public class ConverterTools {
 
-    public static final Charset defaultCharset = StandardCharsets.UTF_8;
+    /**
+     * Default charset value for the package.
+     */
+    public static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     /**
      * Encode input data to base64 format.
+     *
      * @param data input data
-     * @return base64 encoded data
+     * @return base64 encoded data.
      */
-    public static String encode(byte[] data) {
+    public static String encode(final byte[] data) {
         if (null == data) {
             return StringUtils.EMPTY;
         }
@@ -40,21 +44,34 @@ public class ConverterTools {
 
     /**
      * Decode base64 encoded data.
+     *
      * @param data base64 encoded data
-     * @return decoded data
+     * @return decoded data.
      */
-    public static byte[] decode(String data) {
+    public static byte[] decode(final String data) {
         if (null == data) {
             return null;
         }
         return Base64.getDecoder().decode(stringToBytes(data));
     }
 
-    public static byte[] stringToBytes(String data) {
-        return data.getBytes(defaultCharset);
+    /**
+     * Convert String to byte[] with default charset.
+     *
+     * @param data String data to convert
+     * @return byte[] converted from String with default charset.
+     */
+    public static byte[] stringToBytes(final String data) {
+        return data.getBytes(DEFAULT_CHARSET);
     }
 
-    public static String bytesToString(byte[] data) {
-        return new String(data, defaultCharset);
+    /**
+     * Make String from byte[] with default charset.
+     *
+     * @param data byte[] data to convert
+     * @return String converted from byte[] with default charset.
+     */
+    public static String bytesToString(final byte[] data) {
+        return new String(data, DEFAULT_CHARSET);
     }
 }
