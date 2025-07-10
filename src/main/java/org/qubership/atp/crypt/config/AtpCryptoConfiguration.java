@@ -17,12 +17,17 @@
 package org.qubership.atp.crypt.config;
 
 import org.apache.commons.lang.StringUtils;
-
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 
 public class AtpCryptoConfiguration {
 
-    protected void validateKey(String key, String propertyName) throws AtpCryptInvalidKeyException {
+    /**
+     * Validate String key set via propertyName configuration property.
+     * @param key String to validate
+     * @param propertyName String configuration property name
+     * @throws AtpCryptInvalidKeyException in case validation fails.
+     */
+    protected void validateKey(final String key, final String propertyName) throws AtpCryptInvalidKeyException {
         if (StringUtils.isBlank(key)) {
             throw new AtpCryptInvalidKeyException(propertyName + " parameter is blank");
         }

@@ -23,36 +23,75 @@ import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 import org.qubership.atp.crypt.impl.DecryptorImpl;
 import org.qubership.atp.crypt.impl.EncryptorImpl;
 import org.qubership.atp.crypt.provider.BouncyCastleProvider;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class AtpCryptoFactory {
 
+    /**
+     * Default CryptoProvider.
+     */
     private static final CryptoProvider DEFAULT_PROVIDER = createBouncyCastleProvider();
 
-    public static Encryptor createEncryptor(String transformation, Object key, CryptoProvider provider) {
+    /**
+     * Create Encryptor by parameters.
+     *
+     * @param transformation name of transformation
+     * @param key encryption key
+     * @param provider crypto provider
+     * @return Encryptor created.
+     */
+    public static Encryptor createEncryptor(final String transformation,
+                                            final Object key,
+                                            final CryptoProvider provider) {
         return new EncryptorImpl(transformation, provider, key);
     }
 
-    public static Encryptor createEncryptor(String transformation, Object key) {
+    /**
+     * Create Encryptor by parameters, using default crypto provider.
+     *
+     * @param transformation name of transformation
+     * @param key encryption key
+     * @return Encryptor created.
+     */
+    public static Encryptor createEncryptor(final String transformation, final Object key) {
         return new EncryptorImpl(transformation, getDefaultProvider(), key);
     }
 
-    public static Decryptor createDecryptor(String transformation, Object key, CryptoProvider provider) {
+    /**
+     * Create Decryptor by parameters.
+     *
+     * @param transformation name of transformation
+     * @param key encryption key
+     * @param provider crypto provider
+     * @return Decryptor created.
+     */
+    public static Decryptor createDecryptor(final String transformation,
+                                            final Object key,
+                                            final CryptoProvider provider) {
         return new DecryptorImpl(transformation, provider, key);
     }
 
-    public static Decryptor createDecryptor(String transformation, Object key) {
+    /**
+     * Create Decryptor by parameters, using default crypto provider.
+     *
+     * @param transformation name of transformation
+     * @param key encryption key
+     * @return Decryptor created.
+     */
+    public static Decryptor createDecryptor(final String transformation, final Object key) {
         return new DecryptorImpl(transformation, getDefaultProvider(), key);
     }
 
     /**
      * Create AES encryptor.
+     *
      * @param key encryption key
      * @return Encryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
-    public static Encryptor createDefaultAesEncryptor(String key) throws AtpCryptInvalidKeyException {
+    public static Encryptor createDefaultAesEncryptor(final String key) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
         try {
             return new EncryptorImpl(Constants.AES_TRANSFORMATION, getDefaultProvider(), defaultProvider.readKey(key));
@@ -64,11 +103,12 @@ public class AtpCryptoFactory {
 
     /**
      * Create AES decryptor.
+     *
      * @param key decryption key
      * @return Decryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
-    public static Decryptor createDefaultAesDecryptor(String key) throws AtpCryptInvalidKeyException {
+    public static Decryptor createDefaultAesDecryptor(final String key) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
         try {
             return new DecryptorImpl(Constants.AES_TRANSFORMATION, defaultProvider, defaultProvider.readKey(key));
@@ -80,11 +120,12 @@ public class AtpCryptoFactory {
 
     /**
      * Create RSA Encryptor.
+     *
      * @param publicKey encryption key
      * @return Encryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
-    public static Encryptor createDefaultRsaEncryptor(String publicKey) throws AtpCryptInvalidKeyException {
+    public static Encryptor createDefaultRsaEncryptor(final String publicKey) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
         try {
             return new EncryptorImpl(Constants.RSA_TRANSFORMATION, getDefaultProvider(),
@@ -97,11 +138,12 @@ public class AtpCryptoFactory {
 
     /**
      * Create RSA decryptor.
+     *
      * @param privateKey decryption key
      * @return Decryptor
-     * @throws AtpCryptInvalidKeyException Invalid key
+     * @throws AtpCryptInvalidKeyException Invalid key.
      */
-    public static Decryptor createDefaultRsaDecryptor(String privateKey) throws AtpCryptInvalidKeyException {
+    public static Decryptor createDefaultRsaDecryptor(final String privateKey) throws AtpCryptInvalidKeyException {
         CryptoProvider defaultProvider = getDefaultProvider();
         try {
             return new DecryptorImpl(Constants.RSA_TRANSFORMATION, getDefaultProvider(),
@@ -112,10 +154,20 @@ public class AtpCryptoFactory {
         }
     }
 
+    /**
+     * Get Default crypto provider instance.
+     *
+     * @return CryptoProvider instance.
+     */
     public static CryptoProvider getDefaultProvider() {
         return DEFAULT_PROVIDER;
     }
 
+    /**
+     * Create and return new BouncyCastleProvider.
+     *
+     * @return CryptoProvider instance.
+     */
     public static CryptoProvider createBouncyCastleProvider() {
         return new BouncyCastleProvider();
     }

@@ -18,17 +18,61 @@ package org.qubership.atp.crypt.api;
 
 public interface CryptoProvider {
 
+    /**
+     * Generate Keys.
+     * @return KeyEntity containing generated keys
+     * @throws Exception in case some encryption problems.
+     */
     KeyEntity generateKeys() throws Exception;
 
+    /**
+     * Read public key from string parameter.
+     * @param publicKey String to read key
+     * @return Object - public key read
+     * @throws Exception in case some encryption problems.
+     */
     Object readPublicKey(String publicKey) throws Exception;
 
+    /**
+     * Read private key from string parameter.
+     * @param privateKey String to read key
+     * @return Object - private key read
+     * @throws Exception in case some encryption problems.
+     */
     Object readPrivateKey(String privateKey) throws Exception;
 
+    /**
+     * Read key from string parameter.
+     * @param key String to read key
+     * @return Object - key read
+     * @throws Exception in case some encryption problems.
+     */
     Object readKey(String key) throws Exception;
 
+    /**
+     * Encrypt String data using transformation and key provided.
+     * @param transformation Name of transformation, as used in javax.crypto.Cipher
+     * @param data String to be encrypted
+     * @param key Key object
+     * @return String - encrypted String
+     * @throws Exception in case some encryption problems.
+     */
     String encrypt(String transformation, String data, Object key) throws Exception;
 
+    /**
+     * Decrypt String data using transformation and key provided.
+     * @param transformation Name of transformation, as used in javax.crypto.Cipher
+     * @param data String to be decrypted
+     * @param key Key object
+     * @return String - decrypted String
+     * @throws Exception in case some encryption problems.
+     */
     String decrypt(String transformation, String data, Object key) throws Exception;
 
+    /**
+     * Check if String data parameter is encrypted or not.
+     * @param data String to check
+     * @return true if String is encrypted, otherwise false.
+     */
     boolean isEncrypted(String data);
 }

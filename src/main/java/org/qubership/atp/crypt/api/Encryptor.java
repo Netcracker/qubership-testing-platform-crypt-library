@@ -19,7 +19,21 @@ package org.qubership.atp.crypt.api;
 import org.qubership.atp.crypt.exception.AtpEncryptException;
 
 public interface Encryptor {
+
+    /**
+     * Encrypt String data using key provided.
+     * @param data String to be encrypted
+     * @param key Object key
+     * @return encrypted String
+     * @throws AtpEncryptException in case encryption problems.
+     */
     String encrypt(String data, Object key) throws AtpEncryptException;
 
+    /**
+     * Encrypt String data.
+     * @param data String to be encrypted
+     * @return encrypted String
+     * @throws AtpEncryptException in case encryption problems.
+     */
     String encrypt(String data) throws AtpEncryptException;
 }
