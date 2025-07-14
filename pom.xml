@@ -4,7 +4,7 @@
 
     <groupId>org.qubership.atp</groupId>
     <artifactId>atp-crypt</artifactId>
-    <version>0.0.22-SNAPSHOT</version>
+    <version>0.0.21-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Qubership Testing Platform Crypt Library</description>
@@ -154,7 +154,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
-                            <waitUntil>published</waitUntil>
+                            <!-- <waitUntil>published</waitUntil> -->
                         </configuration>
                     </plugin>
                     <plugin>
