@@ -37,13 +37,22 @@ public final class CryptoTools {
     }
 
     /**
-     * Mask text if encrypted with '********' mask.
+     * Mask text if encrypted with Constants.ENCRYPTED_MASK mask.
      *
      * @param text - data to mask
      * @return - encrypted text
      */
     public static String maskEncryptedData(final String text) {
         return maskEncryptedData(text, Constants.ENCRYPTED_MASK);
+    }
+
+    /**
+     * Get encrypted mask.
+     *
+     * @return encrypted mask String.
+     */
+    public static String getEncryptedMask() {
+        return Constants.ENCRYPTED_MASK;
     }
 
     /**
