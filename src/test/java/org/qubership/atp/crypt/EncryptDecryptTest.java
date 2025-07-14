@@ -61,7 +61,7 @@ public class EncryptDecryptTest {
     }
 
     private void encryptDecryptCheck(boolean checkDoubleDecrypt) throws Exception {
-        CryptoProvider provider = AtpCryptoFactory.createBouncyCastleProvider();
+        CryptoProvider provider = AtpCryptoFactory.getDefaultProvider();
         KeyEntity keys = provider.generateKeys();
 
         log.info("key: {}\npublic key: {}\nprivate key: {}", keys.getKey(), keys.getPublicKey(), keys.getPrivateKey());
@@ -87,7 +87,7 @@ public class EncryptDecryptTest {
 
     @Test
     public void encryptAndDecrypt_maskEncryptedData_twoEntriesInJson_success() throws Exception {
-        CryptoProvider provider = AtpCryptoFactory.createBouncyCastleProvider();
+        CryptoProvider provider = AtpCryptoFactory.getDefaultProvider();
         KeyEntity keys = provider.generateKeys();
 
         Encryptor encryptor = AtpCryptoFactory.createEncryptor(Constants.AES_TRANSFORMATION,

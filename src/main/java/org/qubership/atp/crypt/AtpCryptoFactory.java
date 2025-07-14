@@ -168,7 +168,7 @@ public class AtpCryptoFactory {
      *
      * @return CryptoProvider instance.
      */
-    public static CryptoProvider createBouncyCastleProvider() {
+    private static CryptoProvider createBouncyCastleProvider() {
         return new BouncyCastleProvider();
     }
 }
