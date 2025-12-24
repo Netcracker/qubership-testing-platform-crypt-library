@@ -42,7 +42,7 @@
         <commons-lang3.version>3.18.0</commons-lang3.version>
         <slf4j.version>2.0.7</slf4j.version>
         <spring.boot.version>2.7.18</spring.boot.version>
-        <bouncycastle.version>1.69</bouncycastle.version>
+        <bouncycastle.version>1.78.1</bouncycastle.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
     </properties>
@@ -51,7 +51,7 @@
         <dependencies>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
+                <artifactId>bcprov-jdk18on</artifactId>
                 <version>${bouncycastle.version}</version>
             </dependency>
             <dependency>
@@ -103,7 +103,7 @@
     <dependencies>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcprov-jdk18on</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
