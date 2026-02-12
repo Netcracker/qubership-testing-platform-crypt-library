@@ -16,7 +16,7 @@
 
 package org.qubership.atp.crypt.config;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 
 public class AtpCryptoConfiguration {
