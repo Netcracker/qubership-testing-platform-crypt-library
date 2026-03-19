@@ -1,5 +1,5 @@
 /*
- * # Copyright 2024-2025 NetCracker Technology Corporation
+ * # Copyright 2024-2026 NetCracker Technology Corporation
  * #
  * # Licensed under the Apache License, Version 2.0 (the "License");
  * # you may not use this file except in compliance with the License.
@@ -16,7 +16,9 @@
 
 package org.qubership.atp.crypt;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 import org.qubership.atp.crypt.exception.AtpCryptInvalidKeyException;
 
 public class AtpCryptoFactoryTest {
@@ -24,41 +26,41 @@ public class AtpCryptoFactoryTest {
     /**
      * Test of Default AES Encryptor creation in case key is not valid.
      *
-     * @throws Exception in case crypto errors occurred.
      */
-    @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultAesEncryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
-        AtpCryptoFactory.createDefaultAesEncryptor("Invalid");
+    @Test
+    public void testCreateDefaultAesEncryptorExpectExceptionWhenKeyIsNotValid() {
+        assertThrows(AtpCryptInvalidKeyException.class, () ->
+            AtpCryptoFactory.createDefaultAesEncryptor("Invalid"));
     }
 
     /**
      * Test of Default RSA Encryptor creation in case key is not valid.
      *
-     * @throws Exception in case crypto errors occurred.
      */
-    @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultRsaEncryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
-        AtpCryptoFactory.createDefaultRsaEncryptor("Invalid");
+    @Test
+    public void testCreateDefaultRsaEncryptorExpectExceptionWhenKeyIsNotValid() {
+        assertThrows(AtpCryptInvalidKeyException.class, () ->
+            AtpCryptoFactory.createDefaultRsaEncryptor("Invalid"));
     }
 
     /**
      * Test of Default AES Decryptor creation in case key is not valid.
      *
-     * @throws Exception in case crypto errors occurred.
      */
-    @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultAesDecryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
-        AtpCryptoFactory.createDefaultAesDecryptor("Invalid");
+    @Test
+    public void testCreateDefaultAesDecryptorExpectExceptionWhenKeyIsNotValid() {
+        assertThrows(AtpCryptInvalidKeyException.class, () ->
+            AtpCryptoFactory.createDefaultAesDecryptor("Invalid"));
     }
 
     /**
      * Test of Default RSA Decryptor creation in case key is not valid.
      *
-     * @throws Exception in case crypto errors occurred.
      */
-    @Test(expected = AtpCryptInvalidKeyException.class)
-    public void testCreateDefaultRsaDecryptorExpectExceptionWhenKeyIsNotValid() throws Exception {
-        AtpCryptoFactory.createDefaultRsaDecryptor("Invalid");
+    @Test
+    public void testCreateDefaultRsaDecryptorExpectExceptionWhenKeyIsNotValid() {
+        assertThrows(AtpCryptInvalidKeyException.class, () ->
+            AtpCryptoFactory.createDefaultRsaDecryptor("Invalid"));
     }
 
 }
