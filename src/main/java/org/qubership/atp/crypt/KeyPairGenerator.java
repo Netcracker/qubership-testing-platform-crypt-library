@@ -92,10 +92,25 @@ public class KeyPairGenerator {
     }
 
     /**
-     * To generate pair key from console.
+     * To generate a pair of keys from console.
+     * The method is invoked from pre-deploy scripts of atp2 services, via such command:
+     *  ${_cmd:-sh} -c "java -cp \"./lib/*\" org.qubership.atp.crypt.KeyPairGenerator ${1} 2>/dev/null"
+     * The example command (after parameters substitution) is:
+     *  java -cp "path-to-shared/lib/*" org.qubership.atp.crypt.KeyPairGenerator 'some-AES-key-value'
+     * or:
+     *  java -cp "path-to-shared/lib/*" org.qubership.atp.crypt.KeyPairGenerator
+     * Example output is:
+     *  Max Key Size for AES = 2147483647
+     *  key=value-of-command-line-parameter
+     *  encryptedKey=encrypted-value
+     *  publicKey=public-key-value
+     *  privateKey=private-key-value
+     *  Encryption/Decryption test...
+     *  Encrypted data = encrypted-value
+     *  Decrypted data = Key is valid.
      *
-     * @param arg the input arguments
-     * @throws Exception the exception
+     * @param arg Array of input arguments
+     * @throws Exception the exception.
      */
     public static void main(final String[] arg) throws Exception {
         int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
