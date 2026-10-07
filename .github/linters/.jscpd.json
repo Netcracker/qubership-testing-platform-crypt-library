@@ -1,8 +1,10 @@
 {
-  "threshold": 18,
+  "threshold": 2,
+  "mode": "weak",
   "ignore": [
     "**/resources/**",
     "**/.github/**",
+    "**/target/**",
     "**/*/*.xml",
     "**/*/*.yaml",
     "**/*/*.yml",
